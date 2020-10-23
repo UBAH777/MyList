@@ -46,6 +46,18 @@ public class MyList<T> implements Collection<T> {
     }
 
 
+    public Node indexAt(int index) {
+        if (index <= this.length - 1 && index >= 0) {
+            Node<T> iter = this.begin;
+            for (int i = 0; i < index; i++) {
+                iter = iter.getNext();
+            }
+            return iter;
+        }
+        else
+            return null;
+    }
+
     public Node<T> end() {
         if (this.begin == null)
             return null;
