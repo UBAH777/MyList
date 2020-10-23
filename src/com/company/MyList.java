@@ -69,6 +69,37 @@ public class MyList<T> implements Collection<T> {
         return iter;                               // возвращаем итератор, содержащий последнюю ссылку
     }
 
+    public void swap(int firstPos, int secondPos) {
+        Node<T> preFirst = indexAt(firstPos - 1);
+        Node<T> first = indexAt(firstPos);
+        Node<T> aftFirst = indexAt(firstPos + 1);
+        Node<T> preSecond = indexAt(secondPos - 1);
+        Node<T> second = indexAt(secondPos);
+        Node<T> aftSecond = indexAt(secondPos + 1);
+
+        if (preFirst != null) {
+            preFirst.setNext(second);
+        }
+        else {
+            this.begin = second;
+        }
+        first.setNext(aftSecond);
+        if (preSecond == first) {
+            second.setNext(first);
+        }
+        else {
+            second.setNext(aftFirst);
+            preSecond.setNext(first);
+        }
+    }
+
+    public void sort() {
+        for (int i = 0; i < this.length-1; i++)
+            for (int j = 0; j < this.length-1; j++)
+                if ( this.comparable.compare( this.indexAt(j), this.indexAt(j+1)) > 0)
+                    this.swap(j, j+1);
+    }
+
     public String toString() {
         String result = "[ ";
         if (this.begin != null) {

@@ -23,9 +23,9 @@ public class Main {
         myList1.add(19);
 
         System.out.println(myList1);
-        //myList1.sort();
-        //System.out.println(myList1);
-        //changing
+        myList1.sort();
+        System.out.println(myList1);
+
 
 
 
@@ -53,8 +53,8 @@ public class Main {
         myList2.add("cg");
 
         System.out.println(myList2.toString());
-        //myList2.sort();
-        //System.out.println(myList2.toString());
+        myList2.sort();
+        System.out.println(myList2.toString());
 
     }
 }
